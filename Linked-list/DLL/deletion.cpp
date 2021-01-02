@@ -50,7 +50,15 @@ void delete_post(int post){
 	curr = curr->next;
 	temp->next = curr;
 	curr->prev = temp;
-}		
+}	
+
+//DELETE_END
+void delete_end(){
+	Node* temp = head;
+	while(temp->next->next)
+		temp = temp->next;
+	temp->next = nullptr;
+}
 	
 //DISPLAY
 void display(){
@@ -64,8 +72,9 @@ void display(){
 int main(){
 	for(int i=0; i<5; i++)
 		create(i);
-	//delete_begin();
+	delete_begin();
 	delete_post(3);
+	delete_end();
 	display();
 	return 0;
 }
